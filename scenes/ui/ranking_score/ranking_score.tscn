@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmeme2gowuoyn"]
+
+[ext_resource type="Script" path="res://scripts/ui/score_ranking/RankingScore.cs" id="1_5vtlc"]
+[ext_resource type="Theme" uid="uid://dh1bnqe2uljxp" path="res://resources/theme/theme.tres" id="2_lyknm"]
+[ext_resource type="PackedScene" uid="uid://c4i6ewdon7o60" path="res://scenes/components/sound_button_component.tscn" id="3_0v4tf"]
+
+[node name="RankingScore" type="CanvasLayer"]
+script = ExtResource("1_5vtlc")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.0823529, 0.203922, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_lyknm")
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_lyknm")
+theme_override_font_sizes/font_size = 16
+text = "RANKING SCORE"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScoreList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Back" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_0v4tf")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 10
+text = "BACK"
+
+[node name="CopyRight" type="Label" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 0
+theme = ExtResource("2_lyknm")
+theme_override_font_sizes/font_size = 8
+text = "TUTORIAL DEVELOPED BY DHYGAMES"
+horizontal_alignment = 1
+vertical_alignment = 2

@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=3 uid="uid://7xxnm3gudem5"]
+
+[ext_resource type="Script" path="res://scripts/ui/end_screen/EndScreen.cs" id="1_n6ekm"]
+[ext_resource type="PackedScene" uid="uid://b54ypqpkrq5d" path="res://scenes/components/input_component.tscn" id="3_3y6o2"]
+[ext_resource type="Theme" uid="uid://dh1bnqe2uljxp" path="res://resources/theme/theme.tres" id="3_sgyad"]
+[ext_resource type="PackedScene" uid="uid://c4i6ewdon7o60" path="res://scenes/components/sound_button_component.tscn" id="4_mfiyd"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_sgyad")
+script = ExtResource("1_n6ekm")
+
+[node name="BackGround" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.0823529, 0.203922, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="Contain" type="VBoxContainer" parent="MarginContainer"]
+process_mode = 3
+layout_mode = 2
+mouse_filter = 0
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="Titles" type="VBoxContainer" parent="MarginContainer/Contain"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 0
+theme_override_constants/separation = -4
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/Contain/Titles"]
+layout_mode = 2
+theme = ExtResource("3_sgyad")
+theme_override_font_sizes/font_size = 24
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="SubTitle" type="Label" parent="MarginContainer/Contain/Titles"]
+layout_mode = 2
+theme = ExtResource("3_sgyad")
+theme_override_font_sizes/font_size = 11
+text = "YOU'RE A POOR LOSER"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="FinalScore" type="Label" parent="MarginContainer/Contain"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_sgyad")
+theme_override_font_sizes/font_size = 13
+text = "SCORE: 0"
+horizontal_alignment = 1
+
+[node name="InputName" parent="MarginContainer/Contain" instance=ExtResource("3_3y6o2")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.729412, 0.0980392, 0.141176, 1)
+theme_override_font_sizes/font_size = 10
+placeholder_text = "ENTER YOUR NAME"
+alignment = 1
+max_length = 4
+
+[node name="Continue" parent="MarginContainer/Contain" instance=ExtResource("4_mfiyd")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "CONTINUE"
+
+[node name="CopyRight" type="Label" parent="MarginContainer/Contain"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 0
+theme = ExtResource("3_sgyad")
+theme_override_font_sizes/font_size = 8
+text = "TUTORIAL DEVELOPED BY DHYGAMES"
+horizontal_alignment = 1
+vertical_alignment = 2

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://o7bc33bxowdi"]
+
+[ext_resource type="Script" path="res://scripts/managers/CreditManager.cs" id="1_cyiuq"]
+
+[node name="CreditManager" type="Node"]
+script = ExtResource("1_cyiuq")

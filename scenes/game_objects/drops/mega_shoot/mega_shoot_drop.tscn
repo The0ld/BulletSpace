@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpd5ke4r48c4q"]
+
+[ext_resource type="Script" path="res://scripts/game_objects/drops/mega_shoot/MegaShootDrop.cs" id="1_sj05o"]
+[ext_resource type="Resource" uid="uid://spu82etjvyac" path="res://resources/collectable_droppeds/shoots/mega_shoot.tres" id="2_pblpt"]
+[ext_resource type="Texture2D" uid="uid://rnd0lg6hbnll" path="res://asstes/sprites/shots/mega_shoot/mega_shoot.png" id="2_qgqnv"]
+[ext_resource type="PackedScene" uid="uid://8xspg6y35wc6" path="res://scenes/components/energy_shield_component.tscn" id="3_f3euy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yd0dp"]
+
+[node name="MegaShootDrop" type="Node2D"]
+script = ExtResource("1_sj05o")
+CollectibleResource = ExtResource("2_pblpt")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals"]
+unique_name_in_owner = true
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_qgqnv")
+
+[node name="EnergyShieldComponent" parent="." instance=ExtResource("3_f3euy")]
+modulate = Color(0.729412, 0.0980392, 0.141176, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_yd0dp")

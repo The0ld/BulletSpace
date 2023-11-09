@@ -1,0 +1,114 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2kg7cwgvbwno"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu/MainMenu.cs" id="1_ep6dc"]
+[ext_resource type="Texture2D" uid="uid://kwjn56a1q3ji" path="res://asstes/sprites/background/previews/bg-preview.png" id="2_js6of"]
+[ext_resource type="Theme" uid="uid://dh1bnqe2uljxp" path="res://resources/theme/theme.tres" id="3_1rhhm"]
+[ext_resource type="PackedScene" uid="uid://c4i6ewdon7o60" path="res://scenes/components/sound_button_component.tscn" id="4_o8fkh"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_1rhhm")
+script = ExtResource("1_ep6dc")
+
+[node name="BackGround" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_js6of")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 7
+
+[node name="Contain" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Titles" type="VBoxContainer" parent="MarginContainer/Contain"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = -4
+alignment = 1
+
+[node name="Developer" type="Label" parent="MarginContainer/Contain/Titles"]
+layout_mode = 2
+theme = ExtResource("3_1rhhm")
+theme_override_font_sizes/font_size = 11
+text = "DHYGAMES"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="GameTitle" type="Label" parent="MarginContainer/Contain/Titles"]
+layout_mode = 2
+theme = ExtResource("3_1rhhm")
+theme_override_font_sizes/font_size = 24
+text = "BULLET SPACE"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer/Contain"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Contain/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Start" parent="MarginContainer/Contain/Buttons/HBoxContainer" instance=ExtResource("4_o8fkh")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "START"
+
+[node name="Upgrades" parent="MarginContainer/Contain/Buttons/HBoxContainer" instance=ExtResource("4_o8fkh")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "POWERUPS
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Contain/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
+
+[node name="Options" parent="MarginContainer/Contain/Buttons/HBoxContainer2" instance=ExtResource("4_o8fkh")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "OPTIONS"
+
+[node name="Ranking" parent="MarginContainer/Contain/Buttons/HBoxContainer2" instance=ExtResource("4_o8fkh")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "RANKING"
+
+[node name="Quit" parent="MarginContainer/Contain/Buttons" instance=ExtResource("4_o8fkh")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "QUIT"
+
+[node name="CopyRight" type="Label" parent="MarginContainer/Contain"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_1rhhm")
+theme_override_font_sizes/font_size = 8
+text = "TUTORIAL DEVELOPED BY DHYGAMES"
+horizontal_alignment = 1
+vertical_alignment = 2

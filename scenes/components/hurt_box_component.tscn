@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://scrhugsxi7sx"]
+
+[ext_resource type="Script" path="res://scripts/components/HurtBoxComponent.cs" id="1_uxtxc"]
+
+[node name="HurtBoxComponent" type="Area2D"]
+monitorable = false
+script = ExtResource("1_uxtxc")
+
+[node name="InvulnerabilityTimer" type="Timer" parent="."]
+one_shot = true

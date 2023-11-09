@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6k7hix5547w0"]
+
+[ext_resource type="Script" path="res://scripts/autoloads/MovementAxis.cs" id="1_jmheq"]
+
+[node name="MovementAxis" type="Node"]
+script = ExtResource("1_jmheq")

@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://d21u0lj6l1lbj"]
+
+[ext_resource type="Script" path="res://scripts/ui/pause_menu/PauseMenu.cs" id="1_ypcfe"]
+[ext_resource type="Theme" uid="uid://dh1bnqe2uljxp" path="res://resources/theme/theme.tres" id="2_q3ye2"]
+[ext_resource type="PackedScene" uid="uid://c4i6ewdon7o60" path="res://scenes/components/sound_button_component.tscn" id="3_66cn4"]
+
+[node name="pause_menu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_ypcfe")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.0823529, 0.203922, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_q3ye2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+process_mode = 3
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("2_q3ye2")
+theme_override_font_sizes/font_size = 16
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+process_mode = 3
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+
+[node name="ResumeButton" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_66cn4")]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "RESUME"
+
+[node name="OptionsButton" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_66cn4")]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 10
+text = "OPTIONS"
+
+[node name="QuitButton" parent="MarginContainer/VBoxContainer/MarginContainer" instance=ExtResource("3_66cn4")]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 10
+text = "QUIT"
+
+[node name="CopyRight" type="Label" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 0
+theme = ExtResource("2_q3ye2")
+theme_override_font_sizes/font_size = 8
+text = "TUTORIAL DEVELOPED BY DHYGAMES"
+horizontal_alignment = 1

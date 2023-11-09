@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2f87nu12w5gr"]
+
+[ext_resource type="Script" path="res://scripts/components/ShieldComponent.cs" id="1_ijj16"]
+
+[node name="ShieldComponent" type="Node"]
+script = ExtResource("1_ijj16")

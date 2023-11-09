@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://v56y5vqgsrm"]
+
+[ext_resource type="Script" path="res://scripts/ui/powerup_store/PowerupStore.cs" id="1_f0pab"]
+[ext_resource type="Resource" path="res://resources/purchasable_powerups/purchasable_basic_shoot.tres" id="2_2nobu"]
+[ext_resource type="Resource" path="res://resources/purchasable_powerups/purchasable_shield.tres" id="2_6jckm"]
+[ext_resource type="Theme" uid="uid://dh1bnqe2uljxp" path="res://resources/theme/theme.tres" id="2_v1gwl"]
+[ext_resource type="PackedScene" uid="uid://c4i6ewdon7o60" path="res://scenes/components/sound_button_component.tscn" id="3_tee87"]
+[ext_resource type="Resource" path="res://resources/purchasable_powerups/purchasable_spiral_shoot.tres" id="4_yp4s8"]
+
+[node name="PowerupStore" type="CanvasLayer"]
+script = ExtResource("1_f0pab")
+PurchaseItems = [ExtResource("2_6jckm"), ExtResource("2_2nobu"), ExtResource("4_yp4s8")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.0823529, 0.203922, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_v1gwl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_v1gwl")
+theme_override_font_sizes/font_size = 16
+text = "POWERUP STORE"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 16
+columns = 2
+
+[node name="Back" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_tee87")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 10
+text = "BACK"
+
+[node name="CopyRight" type="Label" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 0
+theme = ExtResource("2_v1gwl")
+theme_override_font_sizes/font_size = 8
+text = "TUTORIAL DEVELOPED BY DHYGAMES"
+horizontal_alignment = 1

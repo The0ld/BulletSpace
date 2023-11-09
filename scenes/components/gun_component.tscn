@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://df2r3alifrfbx"]
+
+[ext_resource type="Script" path="res://scripts/components/GunComponent.cs" id="1_msyy0"]
+[ext_resource type="Texture2D" uid="uid://v8ijhl4whlqw" path="res://asstes/sprites/flash/flash.png" id="2_kcch2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vmy5n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kcch2")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"flash",
+"speed": 10.0
+}]
+
+[node name="GunComponent" type="Marker2D"]
+script = ExtResource("1_msyy0")
+
+[node name="CadenceTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="ChangeShootTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="FlashShot" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vmy5n")
+animation = &"flash"
+frame = 1
+frame_progress = 1.0
+offset = Vector2(6, 0)

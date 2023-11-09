@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c5xxq1sdnq8sp"]
+
+[ext_resource type="Script" path="res://resources/collectable_droppeds/standard/StandardDropped.cs" id="1_4m3tp"]
+
+[resource]
+script = ExtResource("1_4m3tp")
+Id = "shield_reload"
+MaxQuantity = -1
+Name = "Shield Reload"
+Description = "Reload the shield to the max value"

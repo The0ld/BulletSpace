@@ -1,0 +1,158 @@
+[gd_scene load_steps=11 format=3 uid="uid://dx1837tpxd0qf"]
+
+[ext_resource type="Theme" uid="uid://dh1bnqe2uljxp" path="res://resources/theme/theme.tres" id="1_iyb3f"]
+[ext_resource type="Script" path="res://scripts/ui/gui/Gui.cs" id="2_sg1a7"]
+[ext_resource type="PackedScene" uid="uid://drdkth7j6yhpm" path="res://scenes/components/bar_health_component.tscn" id="3_edbbj"]
+[ext_resource type="PackedScene" uid="uid://dprfift4exfvm" path="res://scenes/components/bar_shield_component.tscn" id="4_vltx2"]
+[ext_resource type="Texture2D" uid="uid://b3hxrpggp03qb" path="res://asstes/sprites/shots/spiral_shoot/espiral_shoot_4.png" id="5_c8x8j"]
+[ext_resource type="Shader" path="res://resources/shaders/desactivated.gdshader" id="6_qp0f1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxcg1"]
+resource_local_to_scene = true
+bg_color = Color(0.509804, 0.247059, 0.247059, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehqq2"]
+resource_local_to_scene = true
+bg_color = Color(0.101961, 0.298039, 0.4, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2raw4"]
+shader = ExtResource("6_qp0f1")
+shader_parameter/lerp_percent = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y5eg3"]
+shader = ExtResource("6_qp0f1")
+shader_parameter/lerp_percent = 0.5
+
+[node name="Gui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_iyb3f")
+script = ExtResource("2_sg1a7")
+
+[node name="StatBars" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(65, 15)
+layout_mode = 2
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 67.0
+offset_bottom = 20.0
+theme_override_constants/separation = -2
+alignment = 1
+
+[node name="BarHealthComponent" parent="StatBars" instance=ExtResource("3_edbbj")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_pxcg1")
+
+[node name="BarShieldComponent" parent="StatBars" instance=ExtResource("4_vltx2")]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(65, 10)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_ehqq2")
+
+[node name="Bullets" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(65, 15)
+layout_mode = 2
+offset_left = 205.0
+offset_top = 2.0
+offset_right = 270.0
+offset_bottom = 44.0
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="PrimaryShoot" type="HBoxContainer" parent="Bullets"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="SpriteShoot" type="TextureRect" parent="Bullets/PrimaryShoot"]
+material = SubResource("ShaderMaterial_2raw4")
+layout_mode = 2
+texture = ExtResource("5_c8x8j")
+stretch_mode = 3
+
+[node name="AmmoAmount" type="Label" parent="Bullets/PrimaryShoot"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "x99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SecondaryShoot" type="HBoxContainer" parent="Bullets"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="SpriteShoot" type="TextureRect" parent="Bullets/SecondaryShoot"]
+material = SubResource("ShaderMaterial_y5eg3")
+layout_mode = 2
+stretch_mode = 3
+
+[node name="AmmoAmount" type="Label" parent="Bullets/SecondaryShoot"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_bottom = 1
+
+[node name="Score" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 13
+text = "SCORE: 0000000"
+horizontal_alignment = 1
+
+[node name="MetaDta" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Credits" type="Label" parent="MarginContainer/MetaDta"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "CREDITS: 1"
+
+[node name="Level" type="Label" parent="MarginContainer/MetaDta"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "LEVEL 1 EASY"
+
+[node name="Lives" type="Label" parent="MarginContainer/MetaDta"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "LIVES: 1
+"

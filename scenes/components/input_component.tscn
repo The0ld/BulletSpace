@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b54ypqpkrq5d"]
+
+[ext_resource type="Theme" uid="uid://dh1bnqe2uljxp" path="res://resources/theme/theme.tres" id="1_yehx0"]
+[ext_resource type="Script" path="res://scripts/components/InputComponent.cs" id="2_kxkka"]
+
+[node name="InputComponent" type="LineEdit"]
+offset_right = 67.0625
+offset_bottom = 31.0
+theme = ExtResource("1_yehx0")
+script = ExtResource("2_kxkka")

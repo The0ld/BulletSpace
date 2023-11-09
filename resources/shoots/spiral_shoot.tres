@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bn6io7tjumkr3"]
+
+[ext_resource type="PackedScene" uid="uid://byxkjqgupj018" path="res://scenes/game_objects/shots/spiral_shoot.tscn" id="1_maqaf"]
+[ext_resource type="Script" path="res://resources/shoots/ShootResource.cs" id="1_q1sgr"]
+[ext_resource type="Texture2D" uid="uid://b3hxrpggp03qb" path="res://asstes/sprites/shots/spiral_shoot/espiral_shoot_4.png" id="2_l7x30"]
+
+[resource]
+script = ExtResource("1_q1sgr")
+Id = "spiral_shoot"
+ShootScene = ExtResource("1_maqaf")
+Texture = ExtResource("2_l7x30")
+FireRate = 0.5
+AmmoCount = -1
+IsAutomatic = false

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://k20db244i7nv"]
+
+[ext_resource type="PackedScene" uid="uid://c2fd4nbf8oq74" path="res://scenes/game_objects/shots/mega_shoot.tscn" id="1_2u0ag"]
+[ext_resource type="Script" path="res://resources/shoots/ShootResource.cs" id="1_c26rl"]
+[ext_resource type="Texture2D" uid="uid://rnd0lg6hbnll" path="res://asstes/sprites/shots/mega_shoot/mega_shoot.png" id="2_7oify"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_c26rl")
+Id = "mega_shoot"
+ShootScene = ExtResource("1_2u0ag")
+Texture = ExtResource("2_7oify")
+FireRate = 1.2
+AmmoCount = 5
+IsAutomatic = false

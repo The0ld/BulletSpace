@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://6rt6twbht3kr"]
+
+[ext_resource type="AudioStream" uid="uid://cn84er5t1rtgd" path="res://asstes/audios/music/space-asteroids.ogg" id="1_hkaas"]
+[ext_resource type="Script" path="res://scripts/autoloads/MusicBG.cs" id="2_2s7da"]
+
+[node name="MusicBG" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_hkaas")
+volume_db = -15.0
+autoplay = true
+bus = &"Music"
+script = ExtResource("2_2s7da")
+
+[node name="WaitRepeat" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true

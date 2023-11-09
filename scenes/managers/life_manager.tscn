@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl1akvydsh2kx"]
+
+[ext_resource type="Script" path="res://scripts/managers/LifeManager.cs" id="1_sqvom"]
+
+[node name="LifeManager" type="Node"]
+script = ExtResource("1_sqvom")

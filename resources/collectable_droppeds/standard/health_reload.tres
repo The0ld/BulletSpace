@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cwkl87qfynluc"]
+
+[ext_resource type="Script" path="res://resources/collectable_droppeds/standard/StandardDropped.cs" id="1_qi2of"]
+
+[resource]
+script = ExtResource("1_qi2of")
+Id = "health_reload"
+MaxQuantity = -1
+Name = "Health Reload"
+Description = "Recover 25 life points"

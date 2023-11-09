@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://dm7bhdioobfvx"]
+
+[ext_resource type="Script" path="res://resources/shoots/ShootResource.cs" id="1_26gcl"]
+[ext_resource type="PackedScene" uid="uid://cvxmak621c2ek" path="res://scenes/game_objects/shots/basic_shoot.tscn" id="1_e7oqh"]
+[ext_resource type="Texture2D" uid="uid://cdoo1qj8npy2q" path="res://asstes/sprites/shots/basic_shoot/basic_shoot.png" id="2_y2gxq"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_26gcl")
+Id = "basic_shoot"
+ShootScene = ExtResource("1_e7oqh")
+Texture = ExtResource("2_y2gxq")
+FireRate = 0.3
+AmmoCount = -1
+IsAutomatic = false

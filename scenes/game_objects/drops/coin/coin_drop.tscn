@@ -1,0 +1,69 @@
+[gd_scene load_steps=14 format=3 uid="uid://gxx8igi37cb5"]
+
+[ext_resource type="Script" path="res://scripts/game_objects/drops/coin/CoinDrop.cs" id="1_cjb7q"]
+[ext_resource type="Texture2D" uid="uid://dl4qalxskbnmv" path="res://asstes/sprites/coin/coin-1.png" id="2_mq8xn"]
+[ext_resource type="Resource" uid="uid://20hpqflfws64" path="res://resources/collectable_droppeds/standard/coin.tres" id="2_rmsfd"]
+[ext_resource type="PackedScene" uid="uid://8xspg6y35wc6" path="res://scenes/components/energy_shield_component.tscn" id="4_nm6fg"]
+[ext_resource type="Texture2D" uid="uid://dssj0v3156w5f" path="res://asstes/sprites/coin/coin-2.png" id="4_w35kh"]
+[ext_resource type="Texture2D" uid="uid://dqb7mhrvy68gl" path="res://asstes/sprites/coin/coin-3.png" id="5_8hbyo"]
+[ext_resource type="Texture2D" uid="uid://bijf3jo3g65f" path="res://asstes/sprites/coin/coin-4.png" id="6_6qhxi"]
+[ext_resource type="Texture2D" uid="uid://b3mfxrufrli0v" path="res://asstes/sprites/coin/coin-5.png" id="7_vcnx0"]
+[ext_resource type="Texture2D" uid="uid://ch63uqvg3g2d1" path="res://asstes/sprites/coin/coin-6.png" id="8_pcr5v"]
+[ext_resource type="Texture2D" uid="uid://dropmurn58tc0" path="res://asstes/sprites/coin/coin-7.png" id="9_g0xhw"]
+[ext_resource type="PackedScene" uid="uid://bjwr0f824kkcd" path="res://scenes/components/movement_component.tscn" id="11_c60cy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_00l1y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mq8xn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w35kh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8hbyo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6qhxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vcnx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pcr5v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_g0xhw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yd0dp"]
+
+[node name="CoinDrop" type="Node2D"]
+script = ExtResource("1_cjb7q")
+CollectibleResource = ExtResource("2_rmsfd")
+
+[node name="Visuals" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visuals"]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_00l1y")
+autoplay = "default"
+frame_progress = 0.77496
+
+[node name="EnergyShieldComponent" parent="." instance=ExtResource("4_nm6fg")]
+modulate = Color(0.729412, 0.0980392, 0.141176, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_yd0dp")
+
+[node name="MovementComponent" parent="." instance=ExtResource("11_c60cy")]

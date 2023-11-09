@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4i6ewdon7o60"]
+
+[ext_resource type="Theme" uid="uid://dh1bnqe2uljxp" path="res://resources/theme/theme.tres" id="1_yr780"]
+[ext_resource type="Script" path="res://scripts/components/SoundButtonComponent.cs" id="2_h0026"]
+[ext_resource type="AudioStream" uid="uid://cuf36dcvtnx36" path="res://asstes/audios/sfx/sound_button.ogg" id="3_0883u"]
+
+[node name="SoundButtonComponent" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("1_yr780")
+text = "Test"
+script = ExtResource("2_h0026")
+
+[node name="AudioStreamButton" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_0883u")
+bus = &"SFX"

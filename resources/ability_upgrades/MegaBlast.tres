@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c6yuvaxnbifx3"]
+
+[ext_resource type="Script" path="res://resources/ability_upgrades/AbilityUpgrade.cs" id="1_uf0bk"]
+
+[resource]
+script = ExtResource("1_uf0bk")
+Id = "mega_blast"
+MaxQuantity = 1
+Name = "Mega Blast"
+Description = "Get a new \"Mega Blast\" shot with 30 ammo."

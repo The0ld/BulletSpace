@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://spu82etjvyac"]
+
+[ext_resource type="Resource" uid="uid://k20db244i7nv" path="res://resources/shoots/mega_shoot.tres" id="1_8xaa1"]
+[ext_resource type="Script" path="res://resources/collectable_droppeds/shoots/ShootDropped.cs" id="2_utx1s"]
+
+[resource]
+script = ExtResource("2_utx1s")
+ShootResource = ExtResource("1_8xaa1")
+Id = "secondary_shoot"
+MaxQuantity = -1
+Name = "Mega Shoot"
+Description = "Add a secundary shoot bigger"

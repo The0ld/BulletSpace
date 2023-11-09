@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqu7odu0et2cr"]
+
+[ext_resource type="Script" path="res://scripts/managers/EnemyManager.cs" id="1_seen1"]
+[ext_resource type="PackedScene" uid="uid://cbik6ikmrl102" path="res://scenes/game_objects/enemies/basic_enemy.tscn" id="2_51q2o"]
+[ext_resource type="PackedScene" uid="uid://778uvyqsc08o" path="res://scenes/game_objects/enemies/asteroids/small_asteroid.tscn" id="3_p7xir"]
+[ext_resource type="PackedScene" uid="uid://mqkibbk5hfi2" path="res://scenes/game_objects/enemies/asteroids/big_asteroid.tscn" id="4_cdgd4"]
+
+[sub_resource type="Curve2D" id="Curve2D_fpgcm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 160, 0, 0, 0, 0, 0, 160, 0, 0, 0, 0, 10, 160, 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[node name="EnemyManager" type="Path2D"]
+curve = SubResource("Curve2D_fpgcm")
+script = ExtResource("1_seen1")
+BasicEnemy = ExtResource("2_51q2o")
+SmallAsteroid = ExtResource("3_p7xir")
+BigAsteroid = ExtResource("4_cdgd4")
+Init = 1.5
+End = 2.0
+
+[node name="TimerSpawn" type="Timer" parent="."]
+autostart = true
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotation = 1.5708

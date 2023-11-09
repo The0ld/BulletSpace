@@ -1,0 +1,127 @@
+[gd_scene load_steps=4 format=3 uid="uid://g55215tf4vpr"]
+
+[ext_resource type="Script" path="res://scripts/ui/options_menu/OptionsMenu.cs" id="1_wlrkq"]
+[ext_resource type="Theme" uid="uid://dh1bnqe2uljxp" path="res://resources/theme/theme.tres" id="5_1u5is"]
+[ext_resource type="PackedScene" uid="uid://c4i6ewdon7o60" path="res://scenes/components/sound_button_component.tscn" id="6_8067k"]
+
+[node name="options_menu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_wlrkq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.0823529, 0.203922, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_1u5is")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+process_mode = 3
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+theme = ExtResource("5_1u5is")
+theme_override_font_sizes/font_size = 16
+text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="Options" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="SfxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/Options"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="SfxLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/Options/SfxContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "SFX VOLUME"
+
+[node name="SfxSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MarginContainer/Options/SfxContainer"]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="MusicContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/Options"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/Options/MusicContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "MUSIC VOLUME"
+
+[node name="MusicSlider" type="HSlider" parent="MarginContainer/VBoxContainer/MarginContainer/Options/MusicContainer"]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="WindowsOptionContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/Options"]
+process_mode = 3
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="WindowLabel" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/Options/WindowsOptionContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "WINDOW"
+
+[node name="WindowButton" parent="MarginContainer/VBoxContainer/MarginContainer/Options/WindowsOptionContainer" instance=ExtResource("6_8067k")]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "WINDOWED"
+
+[node name="Back" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_8067k")]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 10
+text = "BACK"
+
+[node name="CopyRight" type="Label" parent="MarginContainer/VBoxContainer"]
+process_mode = 3
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 0
+theme = ExtResource("5_1u5is")
+theme_override_font_sizes/font_size = 8
+text = "TUTORIAL DEVELOPED BY DHYGAMES"
+horizontal_alignment = 1

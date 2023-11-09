@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://bi5ejn7ia0f3e"]
+
+[ext_resource type="Script" path="res://scripts/levels/LevelOne.cs" id="1_awejx"]
+[ext_resource type="PackedScene" uid="uid://b366k0k2ck772" path="res://scenes/ui/backgorunds/background_space.tscn" id="2_pqp1r"]
+[ext_resource type="PackedScene" uid="uid://dnp2qbugy38o7" path="res://scenes/managers/score_manager.tscn" id="3_d0s14"]
+[ext_resource type="PackedScene" uid="uid://dl1akvydsh2kx" path="res://scenes/managers/life_manager.tscn" id="3_iipse"]
+[ext_resource type="PackedScene" uid="uid://dx1837tpxd0qf" path="res://scenes/ui/gui/gui.tscn" id="3_p1dt6"]
+[ext_resource type="PackedScene" uid="uid://bqu7odu0et2cr" path="res://scenes/managers/enemy_manager.tscn" id="4_2c1km"]
+[ext_resource type="PackedScene" uid="uid://bduko4eogq71s" path="res://scenes/game_objects/player/player.tscn" id="4_vq20t"]
+[ext_resource type="PackedScene" uid="uid://o7bc33bxowdi" path="res://scenes/managers/credit_manager.tscn" id="5_ytq7g"]
+
+[node name="LevelOne" type="Node" groups=["level"]]
+script = ExtResource("1_awejx")
+
+[node name="BackgroundSpace" parent="." instance=ExtResource("2_pqp1r")]
+
+[node name="LifeManager" parent="." instance=ExtResource("3_iipse")]
+
+[node name="ScoreManager" parent="." groups=["score"] instance=ExtResource("3_d0s14")]
+
+[node name="CreditManager" parent="." instance=ExtResource("5_ytq7g")]
+
+[node name="Bullets" type="Node2D" parent="." groups=["bullets"]]
+
+[node name="EnemyManager" parent="." instance=ExtResource("4_2c1km")]
+position = Vector2(287, 0)
+Init = 1.0
+
+[node name="Entities" type="Node2D" parent="." groups=["entities"]]
+top_level = true
+
+[node name="ReSpawnPlayer" type="Marker2D" parent="Entities" groups=["respawn_player"]]
+position = Vector2(45, 80)
+
+[node name="Player" parent="Entities" instance=ExtResource("4_vq20t")]
+position = Vector2(45, 80)
+
+[node name="Gui" parent="." node_paths=PackedStringArray("ScoreManagerProp", "CreditManagerProp", "LifeManagerProp") instance=ExtResource("3_p1dt6")]
+ScoreManagerProp = NodePath("../ScoreManager")
+CreditManagerProp = NodePath("../CreditManager")
+LifeManagerProp = NodePath("../LifeManager")
+
+[node name="Foreground" type="Node" parent="." groups=["foreground"]]

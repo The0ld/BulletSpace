@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://drdkth7j6yhpm"]
+
+[ext_resource type="Theme" uid="uid://dh1bnqe2uljxp" path="res://resources/theme/theme.tres" id="1_1rg44"]
+[ext_resource type="Script" path="res://scripts/components/BarHealthComponent.cs" id="2_kbp1r"]
+[ext_resource type="Texture2D" uid="uid://b4souchnmc4fc" path="res://asstes/sprites/health_icon/health_icon.png" id="3_a7c37"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2k5g"]
+resource_local_to_scene = true
+bg_color = Color(0.509804, 0.247059, 0.247059, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="BarHealthComponent" type="ProgressBar"]
+custom_minimum_size = Vector2(91, 10)
+offset_right = 91.0
+offset_bottom = 10.0
+theme = ExtResource("1_1rg44")
+theme_override_styles/fill = SubResource("StyleBoxFlat_j2k5g")
+max_value = 1.0
+value = 0.5
+show_percentage = false
+script = ExtResource("2_kbp1r")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 7.0
+offset_bottom = -3.0
+grow_vertical = 2
+texture = ExtResource("3_a7c37")

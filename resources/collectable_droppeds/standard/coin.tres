@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://20hpqflfws64"]
+
+[ext_resource type="Script" path="res://resources/collectable_droppeds/standard/StandardDropped.cs" id="1_46wbf"]
+
+[resource]
+script = ExtResource("1_46wbf")
+Id = "coin"
+MaxQuantity = -1
+Name = "Coin"
+Description = "Get a coin"
