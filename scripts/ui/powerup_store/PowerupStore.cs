@@ -8,8 +8,19 @@ public partial class PowerupStore : CanvasLayer
 	[Export]
 	public Array<PurchasablePowerupsBasic> PurchaseItems { get; set; } = new Array<PurchasablePowerupsBasic>();
 
+	[OnReady("/root/MetaProgression")]
+	public MetaProgression MetaProgressionProp { get; set; }
+
+	[OnReady("/root/GameEvents")]
+	public GameEvents GameEventsProp { get; set; }
+
 	[OnReady("%Back")]
 	public Button Back { get; private set; }
+
+	[OnReady("%Credits")]
+	public Label Credits { get; private set; }
+
+	private int AvailableCredits { get; set; }
 
 	public PackedScene PowerupCardProp { get; set; } = GD.Load<PackedScene>("res://scenes/ui/powerup_store/powerup_card.tscn");
 
@@ -18,8 +29,16 @@ public partial class PowerupStore : CanvasLayer
 		this.InitializeOnReadyFields();
 
 		Back.Pressed += OnBackPressed;
+		GameEventsProp.CreditAdded += OnCreditAdded;
+
 		InstantiatePowerupCards();
+		SetAvailableCredits();
+		SetCreditsLabel();
 	}
+
+	private void SetAvailableCredits() => AvailableCredits = MetaProgressionProp.GetCredit();
+
+	private void SetCreditsLabel() => Credits.Text = $"CREDITS: {AvailableCredits}";
 
 	private void InstantiatePowerupCards()
 	{
@@ -37,5 +56,15 @@ public partial class PowerupStore : CanvasLayer
 
 	private void OnBackPressed() => GetTree().ChangeSceneToFile("res://scenes/ui/main_menu/main_menu.tscn");
 
-	public override void _ExitTree() => Back.Pressed -= OnBackPressed;
+	private void OnCreditAdded(int credit)
+	{
+		SetAvailableCredits();
+		SetCreditsLabel();
+	}
+
+	public override void _ExitTree()
+	{
+		Back.Pressed -= OnBackPressed;
+		GameEventsProp.CreditAdded -= OnCreditAdded;
+	}
 }

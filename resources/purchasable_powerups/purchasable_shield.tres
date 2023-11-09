@@ -1,6 +1,6 @@
-[gd_resource type="Resource" load_steps=3 format=3]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://by11v47q13u4g"]
 
-[ext_resource type="Texture2D" path="res://asstes/sprites/shield_icon/shield_icon_drop.png" id="1_5xb18"]
+[ext_resource type="Texture2D" uid="uid://dax4xqs2po870" path="res://asstes/sprites/shield_icon/shield_icon_drop.png" id="1_5xb18"]
 [ext_resource type="Script" path="res://resources/purchasable_powerups/PurchasablePowerupsBasic.cs" id="2_gbxa8"]
 
 [resource]

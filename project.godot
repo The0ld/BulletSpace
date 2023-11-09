@@ -14,9 +14,6 @@ config/name="BulletSpace"
 run/main_scene="res://scenes/ui/main_menu/main_menu.tscn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.1", "C#", "GL Compatibility")
-run/max_fps=60
-boot_splash/show_image=false
-config/icon="res://icon.svg"
 
 [audio]
 
