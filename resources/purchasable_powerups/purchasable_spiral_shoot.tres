@@ -1,12 +1,12 @@
-[gd_resource type="Resource" load_steps=4 format=3]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bi5617pl15upj"]
 
-[ext_resource type="Texture2D" path="res://asstes/sprites/shots/spiral_shoot/espiral_shoot_4.png" id="1_d5w7n"]
-[ext_resource type="Resource" path="res://resources/shoots/spiral_shoot.tres" id="2_rxrwu"]
+[ext_resource type="Texture2D" uid="uid://b3hxrpggp03qb" path="res://asstes/sprites/shots/spiral_shoot/espiral_shoot_4.png" id="1_d5w7n"]
+[ext_resource type="Resource" uid="uid://bn6io7tjumkr3" path="res://resources/shoots/spiral_shoot.tres" id="2_rxrwu"]
 [ext_resource type="Script" path="res://resources/purchasable_powerups/PurchasablePowerupsShoots.cs" id="3_bech4"]
 
 [resource]
 script = ExtResource("3_bech4")
-Activated = true
+Activated = false
 Shoot = ExtResource("2_rxrwu")
 Id = "purchasable_spiral_shoot"
 Name = "SPIRAL SHOOT"

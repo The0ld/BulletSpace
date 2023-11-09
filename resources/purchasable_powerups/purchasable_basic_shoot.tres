@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_wlb7h")
-Activated = false
+Activated = true
 Shoot = ExtResource("1_ciyu6")
 Id = "purchasable_basic_shoot"
 Name = "BASIC SHOOT"
