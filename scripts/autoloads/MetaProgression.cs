@@ -131,6 +131,11 @@ public partial class MetaProgression : Node
 			.OfType<PurchasablePowerupsShoots>()
 			.FirstOrDefault(shoot => shoot.Activated);
 
+		if (shootActivated == null)
+			shootActivated = metaUpgrades
+				.OfType<PurchasablePowerupsShoots>()
+				.FirstOrDefault();
+
 		return shootActivated;
 	}
 

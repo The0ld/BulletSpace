@@ -1,7 +1,7 @@
-[gd_resource type="Resource" load_steps=4 format=3]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://8ddc1g64wlua"]
 
-[ext_resource type="Resource" path="res://resources/shoots/basic_shoot.tres" id="1_ciyu6"]
-[ext_resource type="Texture2D" path="res://asstes/sprites/shots/basic_shoot/basic_shoot.png" id="1_tn2iu"]
+[ext_resource type="Resource" uid="uid://dm7bhdioobfvx" path="res://resources/shoots/basic_shoot.tres" id="1_ciyu6"]
+[ext_resource type="Texture2D" uid="uid://cdoo1qj8npy2q" path="res://asstes/sprites/shots/basic_shoot/basic_shoot.png" id="1_tn2iu"]
 [ext_resource type="Script" path="res://resources/purchasable_powerups/PurchasablePowerupsShoots.cs" id="1_wlb7h"]
 
 [resource]
