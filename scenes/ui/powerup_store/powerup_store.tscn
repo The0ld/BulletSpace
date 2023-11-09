@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://v56y5vqgsrm"]
 
 [ext_resource type="Script" path="res://scripts/ui/powerup_store/PowerupStore.cs" id="1_f0pab"]
-[ext_resource type="Resource" path="res://resources/purchasable_powerups/purchasable_basic_shoot.tres" id="2_2nobu"]
-[ext_resource type="Resource" path="res://resources/purchasable_powerups/purchasable_shield.tres" id="2_6jckm"]
+[ext_resource type="Resource" uid="uid://bovemjv4dl2ti" path="res://resources/purchasable_powerups/purchasable_basic_shoot.tres" id="2_2nobu"]
+[ext_resource type="Resource" uid="uid://by11v47q13u4g" path="res://resources/purchasable_powerups/purchasable_shield.tres" id="2_6jckm"]
 [ext_resource type="Theme" uid="uid://dh1bnqe2uljxp" path="res://resources/theme/theme.tres" id="2_v1gwl"]
 [ext_resource type="PackedScene" uid="uid://c4i6ewdon7o60" path="res://scenes/components/sound_button_component.tscn" id="3_tee87"]
-[ext_resource type="Resource" path="res://resources/purchasable_powerups/purchasable_spiral_shoot.tres" id="4_yp4s8"]
+[ext_resource type="Resource" uid="uid://bi5617pl15upj" path="res://resources/purchasable_powerups/purchasable_spiral_shoot.tres" id="4_yp4s8"]
 
 [node name="PowerupStore" type="CanvasLayer"]
 script = ExtResource("1_f0pab")

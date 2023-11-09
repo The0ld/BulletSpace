@@ -237,7 +237,7 @@ _data = {
 "default": SubResource("Animation_rowp7")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jq6nv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1adxk"]
 resource_local_to_scene = true
 shader = ExtResource("7_7opn1")
 shader_parameter/lerp_percent = null
@@ -297,7 +297,7 @@ Acceleration = 10.0
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("HealthComponentProp", "Sprite") instance=ExtResource("6_p8dui")]
 HealthComponentProp = NodePath("../HealthComponent")
 Sprite = NodePath("../Visuals/Sprite2D")
-HitFlashMaterial = SubResource("ShaderMaterial_jq6nv")
+HitFlashMaterial = SubResource("ShaderMaterial_1adxk")
 
 [node name="GunComponent" parent="." node_paths=PackedStringArray("HealthComponentProp") instance=ExtResource("8_gdlf0")]
 position = Vector2(11, 0)

@@ -91,8 +91,8 @@ public partial class PowerupCard : Control
 			MetaProgressionProp.ActiveShoot(shootsPowerUp.Id);
 		else
 		{
-			MetaProgressionProp.AddMetaUpgrade(CurrentPowerUp);
 			GameEventsProp.EmitCreditAdded(-CurrentPowerUp.Price);
+			MetaProgressionProp.AddMetaUpgrade(CurrentPowerUp);
 		}
 
 		UpdateProgress();

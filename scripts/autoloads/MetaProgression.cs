@@ -109,6 +109,8 @@ public partial class MetaProgression : Node
 		if (existingUpgrade.Length > 0) return;
 
 		metaUpgrades.Add(upgrade);
+
+		EmitSignal(nameof(ChangeGlobalStatus));
 		Save();
 	}
 
