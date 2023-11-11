@@ -20,7 +20,7 @@ using System.Linq;
 public partial class WeightedTable
 {
     // Inicializa el generador de números aleatorios.
-    private static Random _random = new Random();
+    private static Random RandomProp { get; set; } = new Random();
 
     // Tabla para almacenar los elementos. Cada elemento es un diccionario.
     public Array<Dictionary> Table { get; private set; } = new Array<Dictionary>();
@@ -32,7 +32,7 @@ public partial class WeightedTable
     public WeightedTable() {}
 
     // Función para generar un número entero aleatorio en un rango.
-    private static int RandiRange(int minValue, int maxValue) => _random.Next(minValue, maxValue + 1);
+    private static int RandiRange(int minValue, int maxValue) => RandomProp.Next(minValue, maxValue + 1);
     
     // Agrega un nuevo elemento a la tabla junto con su peso.
     public void AddItem(string id, Variant item, int weight)

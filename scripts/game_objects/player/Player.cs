@@ -25,16 +25,16 @@ public partial class Player : CharacterBody2D, ICharacter
 	public AnimationPlayer AnimationPlayerProp { get; set; }
 
 	[OnReady("HealthComponent")]
-	public Node HealthComponentProp { get; set; }
+	public HealthComponent HealthComponentProp { get; set; }
 
 	[OnReady("ShieldComponent")]
-	public Node ShieldComponentProp { get; set; }
+	public ShieldComponent ShieldComponentProp { get; set; }
 
 	[OnReady("EnergyShieldComponent")]
-	public Node2D EnergyShieldComponentProp { get; set; }
+	public EnergyShieldComponent EnergyShieldComponentProp { get; set; }
 
 	[OnReady("GunComponent")]
-	public Marker2D GunComponentProp { get; set; }
+	public GunComponent GunComponentProp { get; set; }
 
 	public bool IsDead { get; set; } = false;
 
@@ -47,14 +47,14 @@ public partial class Player : CharacterBody2D, ICharacter
 		CurrentScale = Scale;
 
 		var activatedShoot = MetaProgressionProp.GetShootMetaUpgradeActivated();
-		(GunComponentProp as GunComponent).PrimaryShoot = activatedShoot.Shoot;
-		(GunComponentProp as GunComponent).SetPrimaryShoot();
+		GunComponentProp.PrimaryShoot = activatedShoot.Shoot;
+		GunComponentProp.SetPrimaryShoot();
 
-		(HealthComponentProp as HealthComponent).Died += OnDied;
-		(HealthComponentProp as HealthComponent).HealthChanged += OnHealthChanged;
-		(ShieldComponentProp as ShieldComponent).ShieldChanged += OnShieldChanged;
-		(ShieldComponentProp as ShieldComponent).Deactivate += OnShieldDeactivate;
-		(ShieldComponentProp as ShieldComponent).Activate += OnShieldActivate;
+		HealthComponentProp.Died += OnDied;
+		HealthComponentProp.HealthChanged += OnHealthChanged;
+		ShieldComponentProp.ShieldChanged += OnShieldChanged;
+		ShieldComponentProp.Deactivate += OnShieldDeactivate;
+		ShieldComponentProp.Activate += OnShieldActivate;
 		GameEventsProp.CollectDroppedObject += OnCollectDroppedObject;
 		GetNode<HurtBoxComponent>("HurtBoxComponent").Hit += OnHit;
 
@@ -75,7 +75,7 @@ public partial class Player : CharacterBody2D, ICharacter
 	{
 		if (Input.IsActionJustPressed("change_shoot"))
 		{
-			(GunComponentProp as GunComponent).ChangeCurrentShoot();
+			GunComponentProp.ChangeCurrentShoot();
 		}
 	}
 
@@ -100,13 +100,13 @@ public partial class Player : CharacterBody2D, ICharacter
 
 	private void UpdateHealthPercent()
 	{
-		float healthPercent = (HealthComponentProp as HealthComponent).GetHealthPercent();
+		float healthPercent = HealthComponentProp.GetHealthPercent();
 		GameEventsProp.EmitHealthPercentChanged(healthPercent);
 	}
 
 	private void UpdateShieldPercent()
 	{
-		float shieldPercent = (ShieldComponentProp as ShieldComponent).GetShieldPercent();
+		float shieldPercent = ShieldComponentProp.GetShieldPercent();
 		GameEventsProp.EmitShieldPercentChanged(shieldPercent);
 	}
 
@@ -117,7 +117,7 @@ public partial class Player : CharacterBody2D, ICharacter
 		var metaUpgrades = (Array<PurchasablePowerupsBasic>)MetaProgressionProp.SaveData["meta_upgrades"];
 		
 		if (metaUpgrades.Any( u => u.Id == "energy_shield"))
-			(ShieldComponentProp as ShieldComponent).FullHeal();
+			ShieldComponentProp.FullHeal();
 	}
 
 	private void OnHealthChanged() => UpdateHealthPercent();
@@ -136,13 +136,13 @@ public partial class Player : CharacterBody2D, ICharacter
 		if (droppedResource == null) return;
 
 		if (droppedResource.Id == "shield_reload")
-			(ShieldComponentProp as ShieldComponent).FullHeal();
+			ShieldComponentProp.FullHeal();
 		
 		if (droppedResource.Id == "health_reload")
-			(HealthComponentProp as HealthComponent).Heal(25);
+			HealthComponentProp.Heal(25);
 
 		if (droppedResource.Id == "secondary_shoot")
-			(GunComponentProp as GunComponent).SecondaryShoot = (droppedResource as ShootDropped).ShootResource as ShootResource;
+			GunComponentProp.SecondaryShoot = (droppedResource as ShootDropped).ShootResource as ShootResource;
 	}
 
 	private async void OnDied()
@@ -164,11 +164,11 @@ public partial class Player : CharacterBody2D, ICharacter
 
     public override void _ExitTree()
     {
-        (HealthComponentProp as HealthComponent).Died -= OnDied;
-		(HealthComponentProp as HealthComponent).HealthChanged -= OnHealthChanged;
-		(ShieldComponentProp as ShieldComponent).ShieldChanged -= OnShieldChanged;
-		(ShieldComponentProp as ShieldComponent).Deactivate -= OnShieldDeactivate;
-		(ShieldComponentProp as ShieldComponent).Activate -= OnShieldActivate;
+        HealthComponentProp.Died -= OnDied;
+		HealthComponentProp.HealthChanged -= OnHealthChanged;
+		ShieldComponentProp.ShieldChanged -= OnShieldChanged;
+		ShieldComponentProp.Deactivate -= OnShieldDeactivate;
+		ShieldComponentProp.Activate -= OnShieldActivate;
 		GameEventsProp.CollectDroppedObject -= OnCollectDroppedObject;
 		GetNode<HurtBoxComponent>("HurtBoxComponent").Hit -= OnHit;
     }

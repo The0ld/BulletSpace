@@ -27,7 +27,7 @@ public partial class MegaShootDrop : Node2D
 		GlobalPosition = startPosition.Lerp(player.GlobalPosition, percent);
 	}
 
-	public void OnAreaEntered(Area2D otherArea)
+	private void OnAreaEntered(Area2D otherArea)
 	{
 		this.CallDeferred("DisableCollision");
 

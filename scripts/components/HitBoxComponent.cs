@@ -14,7 +14,7 @@ public partial class HitBoxComponent : Area2D
 
 	public override void _Ready() => AreaEntered += OnAreaEntered;
 
-	public void OnAreaEntered(Area2D otherArea)
+	private void OnAreaEntered(Area2D otherArea)
 	{
 		if (!SusceptibleToImpact) return;
 		if (otherArea is not HurtBoxComponent) return;

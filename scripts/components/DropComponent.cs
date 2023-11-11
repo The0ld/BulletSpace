@@ -5,33 +5,33 @@ using System;
 public partial class DropComponent : Node
 {
     [Export]
-	public Node HealthComponentProp { get; set; }
+	public HealthComponent HealthComponentProp { get; set; }
 
     [Export]
     public int NoDropProbability { get; set; } = 0;
 
-    public WeightedTable WeightedTableEnemies { get; private set; } = new WeightedTable();
+    public WeightedTable WeightedTableItems { get; private set; } = new WeightedTable();
 
     public override void _Ready()
     {
-        WeightedTableEnemies.AddItem("none", "EMPTY_VARIANT", NoDropProbability);
+        WeightedTableItems.AddItem("none", "EMPTY_VARIANT", NoDropProbability);
 
-        (HealthComponentProp as HealthComponent).Died += OnDied;
+        HealthComponentProp.Died += OnDied;
     }
 
     public void AddDrop(string id, Variant item, int weight)
     {
-        WeightedTableEnemies.AddItem(id, item, weight);
+        WeightedTableItems.AddItem(id, item, weight);
     }
 
     public void RemoveDrop(string id)
     {
-        WeightedTableEnemies.RemoveItem(id);
+        WeightedTableItems.RemoveItem(id);
     }
 
-    public void OnDied()
+    private void OnDied()
 	{
-        var chosenItem = WeightedTableEnemies.PickItem();
+        var chosenItem = WeightedTableItems.PickItem();
 
 		if (chosenItem == null || (string)chosenItem == "EMPTY_VARIANT") return;
 		if (Owner is not Node2D) return;

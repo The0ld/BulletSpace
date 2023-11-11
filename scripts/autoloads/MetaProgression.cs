@@ -8,7 +8,7 @@ public partial class MetaProgression : Node
 	[Signal]
 	public delegate void ChangeGlobalStatusEventHandler();
 
-	public string SaveFilePath { get; } = "user://game.save";
+	private string SaveFilePath { get; } = "user://game.save";
 
 	private Array<PurchasablePowerupsBasic> _metaUpgradesBackup;
 
@@ -25,6 +25,8 @@ public partial class MetaProgression : Node
 		GetNode<GameEvents>("/root/GameEvents").CreditAdded += OnCreditAdded;
 		Load();
     }
+
+	private void EmitChangeGlobalStatus() => EmitSignal(nameof(ChangeGlobalStatus));
 
 	private void Load()
 	{
@@ -110,7 +112,7 @@ public partial class MetaProgression : Node
 
 		metaUpgrades.Add(upgrade);
 
-		EmitSignal(nameof(ChangeGlobalStatus));
+		EmitChangeGlobalStatus();
 		Save();
 	}
 
@@ -121,7 +123,7 @@ public partial class MetaProgression : Node
                 .ToList()
                 .ForEach(upgrade => upgrade.Activated = upgrade.Id == id);
 		
-		EmitSignal(nameof(ChangeGlobalStatus));
+		EmitChangeGlobalStatus();
 		Save();
 	}
 

@@ -20,7 +20,7 @@ public partial class CreditManager : Node
         EmitSignal(nameof(CreditUpdated), CurrentCredit);
     }
 
-    public void OnCreditAdded(int credit) => IncreaseCredit(credit);
+    private void OnCreditAdded(int credit) => IncreaseCredit(credit);
 
     public override void _ExitTree() => GetNode<GameEvents>("/root/GameEvents").CreditAdded -= OnCreditAdded;
 }

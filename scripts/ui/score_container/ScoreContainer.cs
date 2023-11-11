@@ -4,15 +4,6 @@ using OnReadyCs;
 
 public partial class ScoreContainer : HBoxContainer
 {
-	[OnReady("%Position")]
-	public Label LabelPosition { get; set; }
-
-	[OnReady("%Name")]
-	public Label LabelName { get; set; }
-
-	[OnReady("%Score")]
-	public Label LabelScore { get; set; }
-
 	[Export]
 	public int RankingPosition { get; set; }
 
@@ -21,6 +12,15 @@ public partial class ScoreContainer : HBoxContainer
 
 	[Export]
 	public int RankingScore { get; set; }
+
+	[OnReady("%Position")]
+	public Label LabelPosition { get; set; }
+
+	[OnReady("%Name")]
+	public Label LabelName { get; set; }
+
+	[OnReady("%Score")]
+	public Label LabelScore { get; set; }
 
     public override void _Ready() => this.InitializeOnReadyFields();
 

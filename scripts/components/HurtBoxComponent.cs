@@ -34,9 +34,9 @@ public partial class HurtBoxComponent : Area2D
 		InvulnerabilityTimer.Start();
 	}
 
-	public void OnInvulnerabilityTimerTimeOut() => IsVulnerable = true;
+	private void OnInvulnerabilityTimerTimeOut() => IsVulnerable = true;
 	
-	public void OnAreaEntered(Area2D otherArea)
+	private void OnAreaEntered(Area2D otherArea)
 	{
 
 		if (otherArea is not HitBoxComponent hitBoxComponent) return;

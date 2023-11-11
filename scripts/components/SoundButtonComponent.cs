@@ -15,7 +15,7 @@ public partial class SoundButtonComponent : Button
 
 	private void Play() => AudioStreamButton.Play();
 
-	public void OnPressed() => Play();
+	private void OnPressed() => Play();
 
     public override void _ExitTree() => Pressed -= OnPressed;
 }

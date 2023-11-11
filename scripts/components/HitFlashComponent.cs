@@ -4,7 +4,7 @@ using System;
 public partial class HitFlashComponent : Node
 {
     [Export]
-    public Node HealthComponentProp { get; set; }
+    public HealthComponent HealthComponentProp { get; set; }
 
     [Export]
     public Sprite2D Sprite { get; set; }
@@ -16,12 +16,12 @@ public partial class HitFlashComponent : Node
 
     public override void _Ready()
     {
-        (HealthComponentProp as HealthComponent).HealthDecreased += OnHealthDecreased;
+        HealthComponentProp.HealthDecreased += OnHealthDecreased;
 
         Sprite.Material = HitFlashMaterial;
     }
 
-    public void OnHealthDecreased()
+    private void OnHealthDecreased()
     {
         if (HitFlashTween != null && HitFlashTween.IsValid()) HitFlashTween.Kill();
 
@@ -32,5 +32,5 @@ public partial class HitFlashComponent : Node
             .SetTrans(Tween.TransitionType.Cubic);
     }
 
-    public override void _ExitTree() => (HealthComponentProp as HealthComponent).HealthDecreased -= OnHealthDecreased;
+    public override void _ExitTree() => HealthComponentProp.HealthDecreased -= OnHealthDecreased;
 }

@@ -17,5 +17,5 @@ public partial class EnergyShieldComponent : Node2D
 		UpdateTexture(BaseTexture);
 	}
 
-	public void UpdateTexture(Texture2D CurrentTexture) => EnergyShield.Texture = CurrentTexture;
+	public void UpdateTexture(Texture2D currentTexture) => EnergyShield.Texture = currentTexture;
 }

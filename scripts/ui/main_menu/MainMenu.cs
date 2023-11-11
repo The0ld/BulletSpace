@@ -36,14 +36,14 @@ public partial class MainMenu : Control
 		var optionInstance = OptionScene.Instantiate();
 		AddChild(optionInstance);
 
-		(optionInstance as OptionsMenu).BackPressed += () => OnBackPressed(optionInstance);
+		(optionInstance as OptionsMenu).BackPressed += () => OnOptionsBackPressed(optionInstance);
 	}
 
 	private void OnStartPressed() => GetTree().ChangeSceneToFile("res://scenes/levels/level_one.tscn");
 
 	private void OnUpgradesPressed() => GetTree().ChangeSceneToFile("res://scenes/ui/powerup_store/powerup_store.tscn");
 
-	private void OnBackPressed(Node optionsInstance) => optionsInstance.QueueFree();
+	private void OnOptionsBackPressed(Node optionsInstance) => optionsInstance.QueueFree();
 
 	private void OnQuitPressed() => GetTree().Quit();
 

@@ -48,7 +48,7 @@ public partial class GunComponent : Marker2D
 	}
 
 	[Export]
-	public Node HealthComponentProp { get; set; }
+	public HealthComponent HealthComponentProp { get; set; }
 
 	[OnReady("/root/GameEvents")]
 	public GameEvents GameEventProp { get; set; }
@@ -71,11 +71,11 @@ public partial class GunComponent : Marker2D
 		}
 	}
 
-	public bool CanShoot { get; set; } = true;
+	private bool CanShoot { get; set; } = true;
 
-	public bool ParentIsDead { get; set; } = false;
+	private bool ParentIsDead { get; set; } = false;
 
-	public bool CanChange { get; private set; } = true;
+	private bool CanChange { get; set; } = true;
 
 	public override void _Ready()
 	{
@@ -85,8 +85,8 @@ public partial class GunComponent : Marker2D
 		
 		CadenceTimer.Timeout += OnTimeOut;
 		ChangeShootTimer.Timeout += OnChangeShootTimerTimeout;
-		(HealthComponentProp as HealthComponent).Died += OnDied;
-		(HealthComponentProp as HealthComponent).ReSpawned += OnReSpawned;
+		HealthComponentProp.Died += OnDied;
+		HealthComponentProp.ReSpawned += OnReSpawned;
 	}
 
 	public override void _Process(double delta) => CheckCanFire();
@@ -192,7 +192,7 @@ public partial class GunComponent : Marker2D
     {
         CadenceTimer.Timeout -= OnTimeOut;
 		ChangeShootTimer.Timeout -= OnChangeShootTimerTimeout;
-		(HealthComponentProp as HealthComponent).Died -= OnDied;
-		(HealthComponentProp as HealthComponent).ReSpawned -= OnReSpawned;
+		HealthComponentProp.Died -= OnDied;
+		HealthComponentProp.ReSpawned -= OnReSpawned;
     }
 }

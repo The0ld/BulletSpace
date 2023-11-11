@@ -7,13 +7,13 @@ using OnReadyCs;
 public partial class Gui : Control
 {
 	[Export]
-	public Node ScoreManagerProp { get; set; }
+	public ScoreManager ScoreManagerProp { get; set; }
 
 	[Export]
-	public Node CreditManagerProp { get; set; }
+	public CreditManager CreditManagerProp { get; set; }
 
 	[Export]
-	public Node LifeManagerProp { get; set; }
+	public LifeManager LifeManagerProp { get; set; }
 
 	[OnReady("/root/GameEvents")]
 	public GameEvents GameEventsProp { get; set; }
@@ -22,7 +22,7 @@ public partial class Gui : Control
 	public MetaProgression MetaProgressionProp { get; set; }
 
 	[OnReady("%BarShieldComponent")]
-	public ProgressBar BarShieldComponent { get; set; }
+	public BarShieldComponent BarShieldComponentProp { get; set; }
 
 	[OnReady("%Score")]
 	public Label Score { get; private set; }
@@ -46,9 +46,9 @@ public partial class Gui : Control
 		Score.Text = $"SCORE: 0";
 		Lives.Text = $"LIVES: 0";
 
-		(ScoreManagerProp as ScoreManager).ScoreUpdated += OnScoreUpdated;
-		(CreditManagerProp as CreditManager).CreditUpdated += OnCreditUpdated;
-		(LifeManagerProp as LifeManager).LifeUpdated += OnLifeUpdated;
+		ScoreManagerProp.ScoreUpdated += OnScoreUpdated;
+		CreditManagerProp.CreditUpdated += OnCreditUpdated;
+		LifeManagerProp.LifeUpdated += OnLifeUpdated;
 		GameEventsProp.HealthPercentChanged += OnHealthPercentChanged;
 		GameEventsProp.ShieldPercentChanged += OnShieldPercentChanged;
 		GameEventsProp.SetGunShoots += OnSetGunShoots;
@@ -95,7 +95,7 @@ public partial class Gui : Control
 		
 		if (metaUpgrades.Any( u => u.Id == "energy_shield"))
 		{
-			BarShieldComponent.Visible = true;
+			BarShieldComponentProp.Visible = true;
 		}
 	}
 
@@ -122,13 +122,13 @@ public partial class Gui : Control
 
 	public void OnHealthPercentChanged(float percent)
 	{
-		if (GetNode<ProgressBar>("%BarHealthComponent") is not BarHealthComponent healthBar) return;
+		if (GetNode<ProgressBar>("%BarHealthComponent") is not IBar healthBar) return;
 		healthBar.SetPercent(percent);
 	}
 
 	public void OnShieldPercentChanged(float percent)
 	{
-		if (BarShieldComponent is not BarShieldComponent shieldBar) return;
+		if (BarShieldComponentProp is not IBar shieldBar) return;
 		shieldBar.SetPercent(percent);
 	}
 
@@ -149,9 +149,9 @@ public partial class Gui : Control
 
 	public override void _ExitTree()
 	{
-		(ScoreManagerProp as ScoreManager).ScoreUpdated -= OnScoreUpdated;
-		(CreditManagerProp as CreditManager).CreditUpdated -= OnCreditUpdated;
-		(LifeManagerProp as LifeManager).LifeUpdated -= OnLifeUpdated;
+		ScoreManagerProp.ScoreUpdated -= OnScoreUpdated;
+		CreditManagerProp.CreditUpdated -= OnCreditUpdated;
+		LifeManagerProp.LifeUpdated -= OnLifeUpdated;
 		GameEventsProp.HealthPercentChanged -= OnHealthPercentChanged;
 		GameEventsProp.ShieldPercentChanged -= OnShieldPercentChanged;
 		GameEventsProp.SetGunShoots -= OnSetGunShoots;

@@ -7,20 +7,20 @@ public partial class LifeComponent : Node
     public int MaxLives { get; set; } = 3;
 
     [Export]
-    public Node HealthComponentProp { get; set; }
+    public HealthComponent HealthComponentProp { get; set; }
 
     [Export]
     public AnimationPlayer AnimationPlayerProp { get; set; }
 
-    private int currentLives;
+    private int _currentLives;
 
     public int CurrentLives
     {
-        get => currentLives;
+        get => _currentLives;
         set
         {
-            currentLives = Mathf.Clamp(value, 0, MaxLives);
-            GetNode<GameEvents>("/root/GameEvents").EmitPlayerLifeChange(currentLives);
+            _currentLives = Mathf.Clamp(value, 0, MaxLives);
+            GetNode<GameEvents>("/root/GameEvents").EmitPlayerLifeChange(_currentLives);
         }
     }
 
@@ -48,6 +48,6 @@ public partial class LifeComponent : Node
 
         AnimationPlayerProp.Play("respawn");
 
-        (HealthComponentProp as HealthComponent).ResetHeal();
+        HealthComponentProp.ResetHeal();
     }
 }

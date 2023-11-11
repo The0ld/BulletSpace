@@ -5,7 +5,7 @@ public partial class InputComponent : LineEdit
 {
 	public override void _Ready() => TextChanged += OnTextChanged;
 
-	public void OnTextChanged(string name)
+	private void OnTextChanged(string name)
 	{
 		var caretPos = CaretColumn;
 		Text = name.ToUpper();

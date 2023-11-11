@@ -16,7 +16,7 @@ public partial class ScoreManager : Node
         EmitSignal(nameof(ScoreUpdated), CurrentScore);
     }
 
-    public void OnScoreIncreased(int score) => IncreaseScore(score);
+    private void OnScoreIncreased(int score) => IncreaseScore(score);
 
     public override void _ExitTree() => GetNode<GameEvents>("/root/GameEvents").ScoreIncreased -= OnScoreIncreased;
 }
