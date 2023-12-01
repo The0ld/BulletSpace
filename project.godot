@@ -13,7 +13,7 @@ config_version=5
 config/name="BulletSpace"
 run/main_scene="res://scenes/ui/main_menu/main_menu.tscn"
 config/use_custom_user_dir=true
-config/features=PackedStringArray("4.1", "C#", "GL Compatibility")
+config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
 
 [audio]
 
